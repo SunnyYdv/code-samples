@@ -1,18 +1,6 @@
 ## React
 
-Like useState but with delay time if value is false
-
-```tsx
-  const [state, setState] = useDelayedState(1000)
-
-  setState(true)
-  state -> true
-
-  setState(false)
-  setTimeout(() => {
-    state -> false
-  }, 1000)
-```
+### Like useState but with delay time if value is false
 
 ```tsx
 const useDelayedState = <T,>(initialState: T, initialDelay?: number): [T, (state: T, delay?: number) => void] => {
@@ -34,7 +22,21 @@ const useDelayedState = <T,>(initialState: T, initialDelay?: number): [T, (state
 export default useDelayedState
 ```
 
-Page example
+example:
+
+```tsx
+  const [state, setState] = useDelayedState(1000)
+
+  setState(true)
+  state -> true
+
+  setState(false)
+  setTimeout(() => {
+    state -> false
+  }, 1000)
+```
+
+### Page example
 
 ```tsx
 const MyCareerCareerPathsPage: FC<IMyCareerCareerPathsPageProps> = () => {

@@ -1,12 +1,6 @@
 ## Tsx
 
-Converts array of objects to options
-
-```tsx
-arrayToOptions<ArrayItemType>([{ id: 1, title: "Test" }], "id", "title");
-```
-
-Result: [{ value: 1, label: 'Test' }]
+### Converts array of objects to options
 
 ```tsx
 export const arrayToOptions = <T, V = List.Option["value"]>(
@@ -25,14 +19,15 @@ export const arrayToOptions = <T, V = List.Option["value"]>(
 };
 ```
 
-Converts document model fields array to object
+example:
 
 ```tsx
-const Fields = [{ Key: 'Name', ..., Value: 'John Doe' }]
-getModelValues(Fields)
+arrayToOptions<ArrayItemType>([{ id: 1, title: "Test" }], "id", "title");
 ```
 
-Result: { ..., Name: { Value: 'John Doe' }, ... }
+Result: [{ value: 1, label: 'Test' }]
+
+### Converts document model fields array to object
 
 ```tsx
 export const getModelValues = <T extends Core.Object>(model: DM.Type): T => {
@@ -61,9 +56,18 @@ export const getModelValues = <T extends Core.Object>(model: DM.Type): T => {
 };
 ```
 
+example:
+
+```tsx
+const Fields = [{ Key: 'Name', ..., Value: 'John Doe' }]
+getModelValues(Fields)
+```
+
+Result: { ..., Name: { Value: 'John Doe' }, ... }
+
 ## TypeScript
 
-Types for custom api structure for react-query(tanstack-query) and axios
+Types namespace for custom api structure for react-query(tanstack-query) and axios
 
 The structure is a tree of nested objects, each object is nested based on the url
 
